@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BudgetTableComponent } from './budget-table/budget-table.component';
+import { RecordEditComponent } from './record-edit/record-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BudgetTableComponent
+    BudgetTableComponent,
+    RecordEditComponent
   ],
   imports: [
     BrowserModule,

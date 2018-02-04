@@ -1,6 +1,11 @@
-
 <h2>Budget list</h2>
 <table class="budget-table">
+  <tr>
+    <th>id</th>
+    <th>quantity</th>
+    <th>comment</th>
+  </tr>
+
   <tr *ngFor="let record of records"
   [class.selected]="record === selectedRecord"
   (click)="onSelect(record)">
@@ -9,14 +14,4 @@
     <td>{{record.comment}}</td>
   </tr>
 </table>
-
-<div *ngIf="selectedRecord">
-  <div>
-    Selected:
-    {{selectedRecord.id}}
-
-    <label>
-      <input [(ngModel)]="selectedRecord.comment" placeholder="comment">
-    </label>
-  </div>
-</div>
+<app-record-edit [record]="selectedRecord"></app-record-edit>

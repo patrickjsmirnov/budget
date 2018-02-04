@@ -1,0 +1,13 @@
+<div *ngIf="record">
+  <div>
+    <label>
+      Quantity:
+      <input [(ngModel)]="record.quantity" placeholder="quantity"/>
+    </label>
+
+    <label>
+      Comment:
+      <input [(ngModel)]="record.comment" placeholder="comment"/>
+    </label>
+  </div>
+</div>
