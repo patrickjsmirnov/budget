@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Record } from '../record';
-import { Records } from '../records';
+import { RecordService } from '../record.service';
 
 @Component({
   selector: 'app-budget-table',
@@ -8,17 +8,21 @@ import { Records } from '../records';
   styleUrls: ['./budget-table.component.css']
 })
 export class BudgetTableComponent implements OnInit {
-  records = Records;
+  records: Record[];
   selectedRecord: Record;
 
   onSelect(record: Record): void {
     this.selectedRecord = record;
   }
 
-  constructor() { }
+  constructor(private recordService: RecordService) { }
 
   ngOnInit() {
-    //inicialization logic
+    this.records = this.recordService.getRecords();
+  }
+
+  getRecords(): void {
+    this.records = this.recordService.getRecords();
   }
 
 }

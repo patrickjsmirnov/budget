@@ -7,9 +7,8 @@
   </tr>
 
   <tr *ngFor="let record of records"
-  [class.selected]="record === selectedRecord"
-  (click)="onSelect(record)">
-    <td>{{record.id}}</td>
+  [class.selected]="record === selectedRecord">
+    <td (click)="onSelect(record)">{{record.id}}</td>
     <td>{{record.quantity}}</td>
     <td>{{record.comment}}</td>
   </tr>
