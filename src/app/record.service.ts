@@ -12,4 +12,8 @@ export class RecordService {
     return Records;
   }
 
+  saveRecords(record): void {
+    console.log('save');
+  }
+
 }
