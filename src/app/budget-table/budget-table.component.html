@@ -13,4 +13,8 @@
     <td>{{record.comment}}</td>
   </tr>
 </table>
+
+<button (click)="addRecord()">Добавить</button>
+
 <app-record-edit [record]="selectedRecord"></app-record-edit>
+<app-record-edit [flag]="addFlag"></app-record-edit>

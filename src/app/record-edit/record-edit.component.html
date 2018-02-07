@@ -13,3 +13,19 @@
     <button (click)="saveRecord(record)">Сохранить</button>
   </div>
 </div>
+
+<div *ngIf="flag">
+  <div>
+    <label>
+      Quantity:
+      <input placeholder="quantity"/>
+    </label>
+
+    <label>
+      Comment:
+      <input placeholder="comment"/>
+    </label>
+
+    <button (click)="changeFlag()">Сохранить</button>
+  </div>
+</div>

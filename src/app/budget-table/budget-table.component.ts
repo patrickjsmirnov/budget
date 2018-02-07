@@ -10,9 +10,15 @@ import { RecordService } from '../record.service';
 export class BudgetTableComponent implements OnInit {
   records: Record[];
   selectedRecord: Record;
+  addFlag: boolean;
 
   onSelect(record: Record): void {
     this.selectedRecord = record;
+  }
+
+  addRecord(): void {
+    this.addFlag = true;
+    console.log(this.addFlag);
   }
 
   constructor(private recordService: RecordService) { }

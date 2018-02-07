@@ -8,12 +8,25 @@ export class RecordService {
 
   constructor() { }
 
+  // запись record в LocalStorage
+  saveRecordLocalStorage(record: Record): void {
+    localStorage.setItem(record.id.toString(), JSON.stringify(record));
+  }
+
+  // получение record из LocalStorage
+  getRecordLocalStorage(id: string): string {
+    return localStorage.getItem(id);
+  }
+
+
   getRecords(): Record[] {
     return Records;
   }
 
-  saveRecords(record): void {
-    console.log('save');
+  saveRecord(record: Record): void {
+    console.log(Records);
+    console.log(record);
+    console.log('saving');
   }
 
 }
