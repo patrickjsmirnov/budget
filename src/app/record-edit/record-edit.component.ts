@@ -10,7 +10,6 @@ import { RecordService } from '../record.service';
 
 export class RecordEditComponent implements OnInit {
   @Input() record: Record;
-  @Input() flag: boolean;
   records: Record[];
 
   constructor(private recordService: RecordService) { }
@@ -20,7 +19,6 @@ export class RecordEditComponent implements OnInit {
 
   saveRecord(record: Record): void {
     this.recordService.saveRecord(record);
-    this.recordService.saveRecordLocalStorage(record);
     // console.log('save');
   }
 

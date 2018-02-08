@@ -2,12 +2,18 @@
   <div>
     <label>
       Quantity:
-      <input [(ngModel)]="record.quantity" placeholder="quantity"/>
+      <input
+        type="number"
+        [(ngModel)]="record.quantity"
+        placeholder="quantity"/>
     </label>
 
     <label>
       Comment:
-      <input [(ngModel)]="record.comment" placeholder="comment"/>
+      <input
+        type="text"
+        [(ngModel)]="record.comment"
+        placeholder="comment"/>
     </label>
 
     <button (click)="saveRecord(record)">Сохранить</button>

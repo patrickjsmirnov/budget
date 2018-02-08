@@ -25,6 +25,7 @@ export class BudgetTableComponent implements OnInit {
 
   ngOnInit() {
     this.records = this.recordService.getRecords();
+    this.recordService.saveRecordsLocalStorage(this.records);
   }
 
   getRecords(): void {
