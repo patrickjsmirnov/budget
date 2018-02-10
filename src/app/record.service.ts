@@ -13,25 +13,31 @@ export class RecordService {
     localStorage.setItem(record.id.toString(), JSON.stringify(record));
   }
 
-  // получение записи из localStorage
+  // получение записи из localStorage по ключу
+  // ключ - id
   getRecordLocalStorage(id: string): string {
     return localStorage.getItem(id);
   }
 
-  // запись всех записей
+  // сохранение всех записей
   saveRecordsLocalStorage(records: Record[]): void {
     records.forEach((record) => {
       this.saveRecordLocalStorage(record);
     })
   }
 
+  // получение записей
   getRecords(): Record[] {
+    if (localStorage.length > 0) {
+      Records.length = 0;
+      Object.keys(localStorage).forEach((item) => {
+        Records.push(JSON.parse(this.getRecordLocalStorage(item)));
+      })
+    }
     return Records;
   }
 
   // валидация записи перед сохранением
-  // quanity [-1000, 1000], 0 нельзя
-  // comment < 512 буквы, цифры, пробелы, знаки препинания
   validateRecord(record: Record): boolean {
     if (Math.abs(record.quantity) > 1000 || record.quantity === 0) {
       return false;
@@ -44,10 +50,14 @@ export class RecordService {
   }
 
   // сохранение записи в localStorage
-  saveRecord(record: Record): void {
+  saveRecord(record: Record): boolean {
     if (this.validateRecord(record)) {
-      console.log('saving');
+      this.saveRecordLocalStorage(record);
+      return true;
     }
+
+    return false;
   }
+
 
 }

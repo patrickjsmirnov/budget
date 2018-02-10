@@ -1,0 +1,19 @@
+<div class="edit-form" *ngIf="toggle === true">
+  <div>
+    <label>
+      Quantity:
+      <input
+        type="number"
+        placeholder="quantity"/>
+    </label>
+
+    <label>
+      Comment:
+      <input
+        type="text"
+        placeholder="comment"/>
+    </label>
+
+    <button (click)="saveRecord()">Сохранить</button>
+  </div>
+</div>

@@ -10,6 +10,9 @@ import { RecordService } from '../record.service';
 
 export class RecordEditComponent implements OnInit {
   @Input() record: Record;
+  @Input() addFlag: boolean;
+  @Input() openFormFlag: boolean;
+  @Input() editFlag: boolean;
   records: Record[];
 
   constructor(private recordService: RecordService) { }
@@ -18,8 +21,9 @@ export class RecordEditComponent implements OnInit {
   }
 
   saveRecord(record: Record): void {
-    this.recordService.saveRecord(record);
-    // console.log('save');
+    if (this.recordService.saveRecord(record)) {
+        this.openFormFlag = false;
+    }
   }
 
 }

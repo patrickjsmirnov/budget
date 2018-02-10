@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RecordService } from './record.service';
@@ -7,12 +7,14 @@ import { RecordService } from './record.service';
 import { AppComponent } from './app.component';
 import { BudgetTableComponent } from './budget-table/budget-table.component';
 import { RecordEditComponent } from './record-edit/record-edit.component';
+import { RecordAddComponent } from './record-add/record-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BudgetTableComponent,
-    RecordEditComponent
+    RecordEditComponent,
+    RecordAddComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,7 @@ import { RecordEditComponent } from './record-edit/record-edit.component';
     HttpModule,
   ],
   providers: [RecordService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

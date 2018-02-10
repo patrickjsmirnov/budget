@@ -10,15 +10,28 @@ import { RecordService } from '../record.service';
 export class BudgetTableComponent implements OnInit {
   records: Record[];
   selectedRecord: Record;
+  toggleFlag: boolean;
   addFlag: boolean;
+  editFlag: boolean;
+  openFormFlag: boolean;
 
   onSelect(record: Record): void {
     this.selectedRecord = record;
+    this.openFormFlag = true;
+    this.editFlag = true;
+    this.addFlag = false;
   }
 
   addRecord(): void {
+    this.toggleFlag = true;
     this.addFlag = true;
-    console.log(this.addFlag);
+    this.openFormFlag = true;
+    this.editFlag = false;
+  }
+
+  saveRecord(record: Record): void {
+    console.log(record);
+    this.recordService.saveRecord(record);
   }
 
   constructor(private recordService: RecordService) { }

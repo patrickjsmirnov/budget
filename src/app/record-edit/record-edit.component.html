@@ -1,37 +1,33 @@
-<div *ngIf="record">
+<div class="edit-form" *ngIf="openFormFlag">
   <div>
     <label>
       Quantity:
       <input
+        *ngIf="editFlag"
         type="number"
         [(ngModel)]="record.quantity"
+        placeholder="quantity"/>
+
+      <input
+        *ngIf="addFlag"
+        type="number"
         placeholder="quantity"/>
     </label>
 
     <label>
       Comment:
       <input
+        *ngIf="editFlag"
         type="text"
         [(ngModel)]="record.comment"
+        placeholder="comment"/>
+
+      <input
+        *ngIf="addFlag"
+        type="text"
         placeholder="comment"/>
     </label>
 
     <button (click)="saveRecord(record)">Сохранить</button>
-  </div>
-</div>
-
-<div *ngIf="flag">
-  <div>
-    <label>
-      Quantity:
-      <input placeholder="quantity"/>
-    </label>
-
-    <label>
-      Comment:
-      <input placeholder="comment"/>
-    </label>
-
-    <button (click)="changeFlag()">Сохранить</button>
   </div>
 </div>
