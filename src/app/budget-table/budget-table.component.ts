@@ -30,7 +30,6 @@ export class BudgetTableComponent implements OnInit {
   }
 
   saveRecord(record: Record): void {
-    console.log(record);
     this.recordService.saveRecord(record);
   }
 

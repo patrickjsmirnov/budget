@@ -10,6 +10,7 @@
 
       <input
         *ngIf="addFlag"
+        [(ngModel)]="quantityField"
         type="number"
         placeholder="quantity"/>
     </label>
@@ -24,10 +25,12 @@
 
       <input
         *ngIf="addFlag"
+        [(ngModel)]="commentField"
         type="text"
         placeholder="comment"/>
     </label>
 
-    <button (click)="saveRecord(record)">Сохранить</button>
+    <button *ngIf="editFlag" (click)="saveRecord(record)">Сохранить</button>
+    <button *ngIf="addFlag" (click)="addNewRecord()">Добавить</button>
   </div>
 </div>

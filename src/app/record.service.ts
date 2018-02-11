@@ -5,6 +5,8 @@ import { Records } from './records';
 
 @Injectable()
 export class RecordService {
+  tempRecord: Record;
+
 
   constructor() { }
 
@@ -57,6 +59,17 @@ export class RecordService {
     }
 
     return false;
+  }
+
+
+  // добавление новой записи
+  addNewRecord(quantity: number, comment: string): void {
+    this.tempRecord = {
+      id: Records.length + 1,
+      quantity: quantity,
+      comment: comment
+    }
+    Records.push(this.tempRecord);
   }
 
 

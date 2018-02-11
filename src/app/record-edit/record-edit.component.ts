@@ -14,6 +14,8 @@ export class RecordEditComponent implements OnInit {
   @Input() openFormFlag: boolean;
   @Input() editFlag: boolean;
   records: Record[];
+  quantityField: string;
+  commentField: string;
 
   constructor(private recordService: RecordService) { }
 
@@ -24,6 +26,10 @@ export class RecordEditComponent implements OnInit {
     if (this.recordService.saveRecord(record)) {
         this.openFormFlag = false;
     }
+  }
+
+  addNewRecord(): void {
+    this.recordService.addNewRecord(Number(this.quantityField), this.commentField);
   }
 
 }
