@@ -30,7 +30,7 @@
         placeholder="comment"/>
     </label>
 
-    <button *ngIf="editFlag" (click)="saveRecord(record)">Сохранить</button>
+    <button *ngIf="editFlag" (click)="saveRecord(record); update()">Сохранить</button>
     <button *ngIf="addFlag" (click)="addNewRecord()">Добавить</button>
   </div>
 </div>

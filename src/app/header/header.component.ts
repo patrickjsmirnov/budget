@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Record } from '../record';
+import { Sum } from '../sum';
 import { RecordService } from '../record.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { RecordService } from '../record.service';
 })
 export class HeaderComponent implements OnInit {
   currentSum: number;
+  sum = Sum;
 
   constructor(private recordService: RecordService) { }
 

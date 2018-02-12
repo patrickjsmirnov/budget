@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { Sum } from './sum';
 import { Record } from './record';
 import { Records } from './records';
 
@@ -7,8 +7,11 @@ import { Records } from './records';
 export class RecordService {
   tempRecord: Record;
 
-
   constructor() { }
+
+  update(): void {
+    Sum = 2;
+  }
 
   // сохранение записи в localStorage
   saveRecordLocalStorage(record: Record): void {

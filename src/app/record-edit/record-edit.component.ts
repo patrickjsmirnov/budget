@@ -27,6 +27,9 @@ export class RecordEditComponent implements OnInit {
         this.openFormFlag = false;
     }
   }
+  update(): void {
+    this.recordService.update();
+  }
 
   addNewRecord(): void {
     this.recordService.addNewRecord(Number(this.quantityField), this.commentField);
