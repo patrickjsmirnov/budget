@@ -7,12 +7,14 @@ import { RecordService } from './record.service';
 import { AppComponent } from './app.component';
 import { BudgetTableComponent } from './budget-table/budget-table.component';
 import { RecordEditComponent } from './record-edit/record-edit.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BudgetTableComponent,
-    RecordEditComponent
+    RecordEditComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -40,6 +40,7 @@ export class RecordService {
   }
 
   // валидация записи перед сохранением
+  // добавить меньше 512
   validateRecord(record: Record): boolean {
     if (Math.abs(record.quantity) > 1000 || record.quantity === 0) {
       return false;
@@ -47,7 +48,6 @@ export class RecordService {
     if (!/[A-Za-z0-9 .,!'/-]*/.test(record.comment)) {
       return false;
     }
-
     return true;
   }
 
@@ -69,7 +69,18 @@ export class RecordService {
       quantity: quantity,
       comment: comment
     }
-    Records.push(this.tempRecord);
+    if (this.validateRecord(this.tempRecord)) {
+        Records.push(this.tempRecord);
+    }
+    this.saveRecord(this.tempRecord);
+  }
+
+  // сумма quantity
+  sumQuantityRecords(): number {
+    let Records = this.getRecords();
+    let arrQuantity = Records.map((item) => item.quantity);
+    let sum = arrQuantity.reduce((sum, current) => sum + current, 0);
+    return sum;
   }
 
 
