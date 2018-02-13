@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Record } from '../record';
 import { RecordService } from '../record.service';
 
@@ -13,6 +13,8 @@ export class RecordEditComponent implements OnInit {
   @Input() addFlag: boolean;
   @Input() openFormFlag: boolean;
   @Input() editFlag: boolean;
+  // @Output() onUpdated = new EventEmitter<any>();
+   @Output() onUpdated: EventEmitter<any> = new EventEmitter();
   records: Record[];
   quantityField: string;
   commentField: string;
@@ -27,12 +29,14 @@ export class RecordEditComponent implements OnInit {
         this.openFormFlag = false;
     }
   }
-  update(): void {
-    this.recordService.update();
-  }
 
   addNewRecord(): void {
     this.recordService.addNewRecord(Number(this.quantityField), this.commentField);
+  }
+
+  update(): void {
+    this.onUpdated.emit('ypu');
+    console.log('1');
   }
 
 }

@@ -1,3 +1,3 @@
 // Сумма
 
-export const Sum: number = 1;
+export let Sum: number = 1;

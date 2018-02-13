@@ -1,3 +1,4 @@
+<app-header #sum (onUpdated)="onUpdated($event)"></app-header>
 <div class="edit-form" *ngIf="openFormFlag">
   <div>
     <label>
@@ -30,7 +31,7 @@
         placeholder="comment"/>
     </label>
 
-    <button *ngIf="editFlag" (click)="saveRecord(record); update()">Сохранить</button>
-    <button *ngIf="addFlag" (click)="addNewRecord()">Добавить</button>
+    <button *ngIf="editFlag" (click)="saveRecord(record); sum.update()">Сохранить</button>
+    <button *ngIf="addFlag" (click)="addNewRecord(); sum.update()">Добавить</button>
   </div>
 </div>

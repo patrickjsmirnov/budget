@@ -9,9 +9,6 @@ export class RecordService {
 
   constructor() { }
 
-  update(): void {
-    Sum = 2;
-  }
 
   // сохранение записи в localStorage
   saveRecordLocalStorage(record: Record): void {
