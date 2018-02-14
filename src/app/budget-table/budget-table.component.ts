@@ -10,7 +10,6 @@ import { RecordService } from '../record.service';
 export class BudgetTableComponent implements OnInit {
   records: Record[];
   selectedRecord: Record;
-  toggleFlag: boolean;
   addFlag: boolean;
   editFlag: boolean;
   openFormFlag: boolean;
@@ -20,10 +19,10 @@ export class BudgetTableComponent implements OnInit {
     this.openFormFlag = true;
     this.editFlag = true;
     this.addFlag = false;
+    console.log(this.openFormFlag);
   }
 
   addRecord(): void {
-    this.toggleFlag = true;
     this.addFlag = true;
     this.openFormFlag = true;
     this.editFlag = false;

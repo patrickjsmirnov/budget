@@ -1,4 +1,12 @@
-<h2>Budget list</h2>
+<app-record-edit
+  [openForm]="openFormFlag"
+  [addFlag]="addFlag"
+  [editFlag]="editFlag"
+  [record]="selectedRecord">
+</app-record-edit>
+
+<button class="add-btn" (click)="addRecord()">Добавить</button>
+
 <table class="budget-table">
   <tr>
     <th>id</th>
@@ -13,12 +21,3 @@
     <td>{{record.comment}}</td>
   </tr>
 </table>
-
-<button class="add-btn" (click)="addRecord()">Добавить</button>
-
-<app-record-edit
-  [openFormFlag]="openFormFlag"
-  [addFlag]="addFlag"
-  [editFlag]="editFlag"
-  [record]="selectedRecord">
-</app-record-edit>

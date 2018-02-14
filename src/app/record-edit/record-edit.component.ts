@@ -11,7 +11,7 @@ import { RecordService } from '../record.service';
 export class RecordEditComponent implements OnInit {
   @Input() record: Record;
   @Input() addFlag: boolean;
-  @Input() openFormFlag: boolean;
+  @Input() openForm: boolean;
   @Input() editFlag: boolean;
   // @Output() onUpdated = new EventEmitter<any>();
    @Output() onUpdated: EventEmitter<any> = new EventEmitter();
@@ -26,7 +26,7 @@ export class RecordEditComponent implements OnInit {
 
   saveRecord(record: Record): void {
     if (this.recordService.saveRecord(record)) {
-        this.openFormFlag = false;
+        // this.openForm = false;
     }
   }
 
