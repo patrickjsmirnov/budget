@@ -1,37 +1,41 @@
-<app-header #sum (onUpdated)="onUpdated($event)"></app-header>
-<div class="edit-form" *ngIf="openForm">
-  <div>
-    <label>
-      Quantity:
-      <input
-        *ngIf="editFlag"
-        type="number"
-        [(ngModel)]="record.quantity"
-        placeholder="quantity"/>
+<div class="edit-component-wrapper">
+  <app-header #sum (onUpdated)="onUpdated($event)"></app-header>
+  <div class="edit-form" *ngIf="openForm">
+      <label class="input-container">
+        <span class="label-text">Quantity:</span>
+        <input
+          class="text-input"
+          *ngIf="editFlag"
+          type="number"
+          [(ngModel)]="record.quantity"
+          placeholder="quantity"/>
 
-      <input
-        *ngIf="addFlag"
-        [(ngModel)]="quantityField"
-        type="number"
-        placeholder="quantity"/>
-    </label>
+        <input
+          class="text-input"
+          *ngIf="addFlag"
+          [(ngModel)]="quantityField"
+          type="number"
+          placeholder="quantity"/>
+      </label>
 
-    <label>
-      Comment:
-      <input
-        *ngIf="editFlag"
-        type="text"
-        [(ngModel)]="record.comment"
-        placeholder="comment"/>
+      <label class="input-container">
+        <span class="label-text">Comment:</span>
+        <input
+          class="text-input"
+          *ngIf="editFlag"
+          type="text"
+          [(ngModel)]="record.comment"
+          placeholder="comment"/>
 
-      <input
-        *ngIf="addFlag"
-        [(ngModel)]="commentField"
-        type="text"
-        placeholder="comment"/>
-    </label>
+        <input
+          class="text-input"
+          *ngIf="addFlag"
+          [(ngModel)]="commentField"
+          type="text"
+          placeholder="comment"/>
+      </label>
 
-    <button *ngIf="editFlag" (click)="saveRecord(record); sum.update()">Сохранить</button>
-    <button *ngIf="addFlag" (click)="addNewRecord(); sum.update()">Добавить</button>
+      <button class="form-button" *ngIf="editFlag" (click)="saveRecord(record); sum.update()">Сохранить</button>
+      <button class="form-button" *ngIf="addFlag" (click)="addNewRecord(); sum.update()">Добавить</button>
   </div>
 </div>

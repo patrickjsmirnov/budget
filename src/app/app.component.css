@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'LatoRegular';
+	src: url('../assets/fonts/LatoRegular.woff') format('woff');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+  font-family: 'LatoBold';
+  src: url('../assets/fonts/LatoBold.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+}
+
+h1 {
+  font-family: 'LatoBold';
+}

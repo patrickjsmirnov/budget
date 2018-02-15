@@ -5,14 +5,16 @@
   [record]="selectedRecord">
 </app-record-edit>
 
-<button class="add-btn" (click)="addRecord()">Добавить</button>
+<button class="add-btn" (click)="addRecord()">Добавить новую запись</button>
 
 <table class="budget-table">
-  <tr>
-    <th>id</th>
-    <th>quantity</th>
-    <th>comment</th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Количество</th>
+      <th>Комментарий</th>
+    </tr>
+  </thead>
 
   <tr *ngFor="let record of records"
   [class.selected]="record === selectedRecord">
