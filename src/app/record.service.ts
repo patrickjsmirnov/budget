@@ -42,6 +42,7 @@ export class RecordService {
   // валидация записи перед сохранением
   // добавить меньше 512
   validateRecord(record: Record): boolean {
+
     if (!(record.quantity && record.comment)) {
       return false;
     }
@@ -49,7 +50,7 @@ export class RecordService {
     if (Math.abs(record.quantity) > 1000 || record.quantity === 0 || record.comment.length > 512) {
       return false;
     }
-    if (!(/[A-Za-z0-9 .,!'/-]*/.test(record.comment))) {
+    if (!/[а-яА-ЯёЁa-zA-Z0-9 .,!'/-]+$/.test(record.comment)) {
       return false;
     }
 
