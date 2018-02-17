@@ -23,9 +23,7 @@ export class RecordService {
 
   // сохранение всех записей
   saveRecordsLocalStorage(records: Record[]): void {
-    records.forEach((record) => {
-      this.saveRecordLocalStorage(record);
-    })
+    records.forEach((record) => this.saveRecordLocalStorage(record));
   }
 
   // получение записей
@@ -35,19 +33,19 @@ export class RecordService {
       Object.keys(localStorage).forEach((item) => {
         Records.push(JSON.parse(this.getRecordLocalStorage(item)));
       })
+      console.log('sort');
+      return Records.sort((a, b) => a.id - b.id);
     }
     return Records;
   }
 
   // валидация записи перед сохранением
-  // добавить меньше 512
   validateRecord(record: Record): boolean {
-
     if (!(record.quantity && record.comment)) {
       return false;
     }
 
-    if (Math.abs(record.quantity) > 1000 || record.quantity === 0 || record.comment.length > 512) {
+    if (Math.abs(record.quantity) > 1000 || record.quantity === 0) {
       return false;
     }
     if (!/[а-яА-ЯёЁa-zA-Z0-9 .,!'/-]+$/.test(record.comment)) {
@@ -69,16 +67,18 @@ export class RecordService {
 
 
   // добавление новой записи
-  addNewRecord(quantity: number, comment: string): void {
+  addNewRecord(quantity: number, comment: string): boolean {
     this.tempRecord = {
       id: Records.length + 1,
       quantity: quantity,
       comment: comment
     }
-    if (this.validateRecord(this.tempRecord)) {
+    if (this.saveRecord(this.tempRecord)) {
         Records.push(this.tempRecord);
+        return true;
     }
-    this.saveRecord(this.tempRecord);
+
+    return false;
   }
 
   // сумма quantity

@@ -2,7 +2,8 @@
   [openForm]="openFormFlag"
   [addFlag]="addFlag"
   [editFlag]="editFlag"
-  [record]="selectedRecord">
+  [record]="selectedRecord"
+  (onClosed)="onClosed($event)">
 </app-record-edit>
 
 <button class="add-btn" (click)="addRecord()">Добавить новую запись</button>

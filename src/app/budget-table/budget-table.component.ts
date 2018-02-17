@@ -19,7 +19,6 @@ export class BudgetTableComponent implements OnInit {
     this.openFormFlag = true;
     this.editFlag = true;
     this.addFlag = false;
-    console.log(this.openFormFlag);
   }
 
   addRecord(): void {
@@ -30,6 +29,10 @@ export class BudgetTableComponent implements OnInit {
 
   saveRecord(record: Record): void {
     this.recordService.saveRecord(record);
+  }
+
+  onClosed(agreed: boolean) {
+    this.openFormFlag = false;
   }
 
   constructor(private recordService: RecordService) { }

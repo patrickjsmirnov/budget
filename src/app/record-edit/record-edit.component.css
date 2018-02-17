@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .edit-component-wrapper {
   font-family: 'LatoRegular';
 }
@@ -5,16 +9,20 @@
 .edit-form {
   display: flex;
   flex-direction: column;
-  padding-top: 15px;
+  padding: 20px 30px 20px;
   margin-bottom: 20px;
+  position: relative;
+  border: 1px solid #cacfd2;
+  max-width: 768px;
+
 }
 
 .input-container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 300px;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -24,7 +32,11 @@
   font-family: 'LatoRegular';
   border: 2px solid #cacfd2;
   border-radius: 3px;
-  width: 200px;
+  width: 250px;
+}
+
+.comment-field {
+  height: 100px;
 }
 
 .label-text {
@@ -42,4 +54,22 @@
   cursor: pointer;
   font-family: 'LatoBold';
   text-transform: uppercase;
+}
+
+.close-btn {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 17px;
+  height: 17px;
+  background-image: url('../assets/images/icons/close.svg');
+  background-size: cover;
+  cursor: pointer;
+}
+
+.error-data {
+  color: #a93226;
+  font-size: 15px;
+  margin-top: 0;
 }

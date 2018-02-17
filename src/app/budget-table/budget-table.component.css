@@ -29,19 +29,23 @@
 .budget-table th:first-of-type {
   padding-left: 20px;
   padding-right: 20px;
+  width: 80px;
 }
 
 .budget-table tr td:first-of-type {
   padding-left: 20px;
   padding-right: 20px;
+  width: 80px;
 }
 
 .budget-table th:nth-of-type(2) {
   padding-right: 20px;
+  width: 120px;
 }
 
 .budget-table tr td:nth-of-type(2) {
   padding-right: 20px;
+  width: 120px;
 }
 
 .budget-table th:nth-of-type(3) {

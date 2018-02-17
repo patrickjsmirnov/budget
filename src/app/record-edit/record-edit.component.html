@@ -1,39 +1,46 @@
 <div class="edit-component-wrapper">
-  <app-header #sum (onUpdated)="onUpdated($event)"></app-header>
+  <app-header #sum></app-header>
   <div class="edit-form" *ngIf="openForm">
+    <span class="close-btn" (click)="close()"></span>
       <label class="input-container">
-        <span class="label-text">Quantity:</span>
+        <span class="label-text">Количество</span>
         <input
           class="text-input"
           *ngIf="editFlag"
           type="number"
           [(ngModel)]="record.quantity"
-          placeholder="quantity"/>
+          placeholder="Количество"/>
 
         <input
           class="text-input"
           *ngIf="addFlag"
           [(ngModel)]="quantityField"
           type="number"
-          placeholder="quantity"/>
+          placeholder="Количество"/>
       </label>
 
       <label class="input-container">
-        <span class="label-text">Comment:</span>
-        <input
-          class="text-input"
+        <span class="label-text">Комментарий</span>
+        <textarea
+          maxlength="512"
+          class="text-input comment-field"
           *ngIf="editFlag"
           type="text"
           [(ngModel)]="record.comment"
-          placeholder="comment"/>
+          placeholder="Комментарий">
+        </textarea>
 
-        <input
-          class="text-input"
+        <textarea
+          maxlength="512"
+          class="text-input comment-field"
           *ngIf="addFlag"
           [(ngModel)]="commentField"
           type="text"
-          placeholder="comment"/>
+          placeholder="Комментарий">
+        </textarea>
       </label>
+
+      <p class="error-data" *ngIf="correctData">Введите корректные данные</p>
 
       <button class="form-button" *ngIf="editFlag" (click)="saveRecord(record); sum.update()">Сохранить</button>
       <button class="form-button" *ngIf="addFlag" (click)="addNewRecord(); sum.update()">Добавить</button>

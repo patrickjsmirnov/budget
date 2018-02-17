@@ -13,30 +13,43 @@ export class RecordEditComponent implements OnInit {
   @Input() addFlag: boolean;
   @Input() openForm: boolean;
   @Input() editFlag: boolean;
-  // @Output() onUpdated = new EventEmitter<any>();
-   @Output() onUpdated: EventEmitter<any> = new EventEmitter();
+  @Output() onClosed = new EventEmitter<boolean>();
   records: Record[];
   quantityField: string;
   commentField: string;
+  correctData: boolean;
 
   constructor(private recordService: RecordService) { }
 
   ngOnInit() {
+    this.correctData = false;
+  }
+
+  close(): void {
+    this.onClosed.emit(true);
+    this.correctData = false;
   }
 
   saveRecord(record: Record): void {
     if (this.recordService.saveRecord(record)) {
-        // this.openForm = false;
+        this.record.comment = '';
+        this.record.quantity = null;
+        this.correctData = false;
+    }
+    else {
+      this.correctData = true;
     }
   }
 
   addNewRecord(): void {
-    this.recordService.addNewRecord(Number(this.quantityField), this.commentField);
-  }
+    if (this.recordService.addNewRecord(Number(this.quantityField), this.commentField)) {
+      this.quantityField = null;
+      this.commentField = '';
+      this.correctData = false;
+    }
+    else {
+      this.correctData = true;
+    }
 
-  update(): void {
-    this.onUpdated.emit('ypu');
-    console.log('1');
   }
-
 }

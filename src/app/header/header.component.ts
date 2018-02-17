@@ -18,11 +18,5 @@ export class HeaderComponent implements OnInit {
 
   update():void {
     this.currentSum = this.recordService.sumQuantityRecords();
-    console.log(this.currentSum);
-  }
-
-  onUpdated(str: string): void {
-    debugger;
-    console.log('df');
   }
 }
