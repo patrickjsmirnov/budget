@@ -33,7 +33,6 @@ export class RecordService {
       Object.keys(localStorage).forEach((item) => {
         Records.push(JSON.parse(this.getRecordLocalStorage(item)));
       })
-      console.log('sort');
       return Records.sort((a, b) => a.id - b.id);
     }
     return Records;

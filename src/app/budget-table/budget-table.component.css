@@ -36,6 +36,7 @@
   padding-left: 20px;
   padding-right: 20px;
   width: 80px;
+  cursor: pointer;
 }
 
 .budget-table th:nth-of-type(2) {
