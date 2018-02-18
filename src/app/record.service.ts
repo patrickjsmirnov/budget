@@ -47,7 +47,8 @@ export class RecordService {
     if (Math.abs(record.quantity) > 1000 || record.quantity === 0) {
       return false;
     }
-    if (!/[а-яА-ЯёЁa-zA-Z0-9 .,!'/-]+$/.test(record.comment)) {
+
+    if (!/[а-яА-ЯёЁa-zA-Z0-9 .,;:!?'/-]+$/.test(record.comment)) {
       return false;
     }
 
