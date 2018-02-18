@@ -63,7 +63,7 @@
   top: 10px;
   width: 17px;
   height: 17px;
-  background-image: url('../assets/images/icons/close.svg');
+  background-image: url('./assets/images/icons/close.svg');
   background-size: cover;
   cursor: pointer;
 }
